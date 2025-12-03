@@ -17,6 +17,9 @@ cd floorplan-reconstruction
 conda env create -f environment.yml
 ```
 
+### WAFFLE Dataset
+The WAFFLE dataset is available [here](https://tau-vailab.github.io/WAFFLE/). Download the original size images, located in `data/original_size_images.tar.gz`, and extract.
+
 ### Generating Initial Predictions
 Once you have the Raster2Seq checkpoint downloaded, run the following command, ensuring that paths are set properly:
 
@@ -42,7 +45,13 @@ python Raster2Seq/predict.py
 ```
 
 ### COCO Serialization
-To serialize the checkpoint predictions to the COCO format, run the following command:
+To serialize the checkpoint predictions to the COCO format, run the following command, ensuring all paths are set properly:
 ```bash
 python annotation_preprocess.py
+```
+
+### Supervised Fine-Tuning
+To apply supervised fine-tuning, run the following script, ensuring all paths are set properly:
+```bash
+python finetune.py
 ```
