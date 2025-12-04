@@ -4,6 +4,11 @@ James Chan (NetID: jbc292)
 
 Helenna Yin (NetID: yy2294)
 
+In this repository, we both:
+1. Annotate (segment) images from the WAFFLE dataset
+2. Apply supervised fine-tuning to an existing segmentation model `Raster2Seq`, demonstrating greater recall
+
+We make our annotations publicly available in the `annotations/` folder.
 
 ### Setup
 1. First clone the `Raster2Seq` repository. Make sure to download one of the checkpoints, and place it in `./checkpoints/`. At the time of writing, this is currently a private repository; reach out to Hao Phung for more information (htp26 [at] cornell [dot] edu).
@@ -18,14 +23,14 @@ conda env create -f environment.yml
 ```
 
 ### WAFFLE Dataset
-The WAFFLE dataset is available [here](https://tau-vailab.github.io/WAFFLE/). Download the original size images, located in `data/original_size_images.tar.gz`, and extract.
+The WAFFLE dataset is publicly available [here](https://tau-vailab.github.io/WAFFLE/). Download the original size images, located in `data/original_size_images.tar.gz`, and extract.
 
 ### Generating Initial Predictions
 Once you have the Raster2Seq checkpoint downloaded, run the following command, ensuring that paths are set properly:
 
 ```bash
 python Raster2Seq/predict.py 
-    --dataset_root={{PATH_TO_IMAGE}} 
+    --dataset_root={{PATH_TO_IMAGES}} 
     --checkpoint={{PATH_TO_CHECKPOINT}}
     --output_dir=preds 
     --semantic_classes=12 --input_channels 3 
